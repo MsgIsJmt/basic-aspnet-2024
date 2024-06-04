@@ -302,6 +302,10 @@ IoT 개발자 과정 ASP.NET 리포지토리
 ## 6일차 (2024-06-05)
 
 
+
+https://github.com/MsgIsJmt/basic-aspnet-2024/assets/158007442/91c7a2b8-66ef-4e4c-8634-0d824287acc6
+
+
 ## 7일차 (2024-06-06)
 
 
