@@ -305,6 +305,8 @@ IoT 개발자 과정 ASP.NET 리포지토리
 
           <img src="https://raw.githubusercontent.com/MsgIsJmt/basic-aspnet-2024/main/images/an0001.png" width="730">
 
+        - Codehal 슬라이더 애니메이션
+
 ## 6일차 (2024-06-05)
 
 
