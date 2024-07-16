@@ -7,7 +7,7 @@ IoT 개발자 과정 ASP.NET 리포지토리
     - Full-Stack 
         - Front-end : 웹사이트 화면으로 사람들에게 보이는 부분 기술
         - Back-end  : 웹사이트 뒤에서 동작하는 서버기술
-        - Server-Operation : HW, OS, SW 등 운영 (클라우드)
+        - Server-Operation : HW, OS, SW 등 운영 (클라우드), 도커, 쿠버네티스...
 
 - 업무용 웹 사이트 참조
     - https://www.ecount.com/kr/ECK/ECK004M_CN.aspx
@@ -28,9 +28,10 @@ IoT 개발자 과정 ASP.NET 리포지토리
 
 - 웹 : 웹은 요청에 대한 응답을 의미한다.
 
-- 개발
+- 웹 개발
     - 프론트 엔드 전부 + 벡엔드 여러개 중 하나 + DB
-    - 웹 브라우저에서 F12(개발자 도구)
+    - 웹 브라우저에서 개발자도구(F12) 활용
+    - VS Code 플러그인 - 프론트엔드
 
 - HTML5
     - 기본 용어
@@ -317,6 +318,97 @@ IoT 개발자 과정 ASP.NET 리포지토리
 
 
 ## 8일차 (2024-06-07)
+- ASP.NET
+
+        - 웹퍼블리시 - HTML, CSS, Javascript만 가지고 웹페이지만 개발
+        - 프론트엔드 개발자 - 웹퍼블리시가 만든 웹페이지에 백엔드와 연계를 해서 실제 동작하는 페이지 개발
+            - json, 백엔드, DB 전반적인 개발 지식
+
+    - ASP.NET 역사
+        - 1990년대 MS가 웹 서버기술로 ASP(Active Server Page)를 배포. like JSP(Java Server Page)
+        - ASP는 .NET으로 된 언어가 아닌, VBscript를 사용. 확장자(.asp)
+        - 개발이 무지 쉬워서 많이 사용
+        - 스파게티 코드 - HTML + CSS + javascript + VBsript 짬뽕으로 만든 웹 페이지
+            - 프론트엔드 + 백엔드 소스가 모두 한페이지에...
+            - 다만, 현재 프론트엔드도 백엔드 소스가 일부는 포함되어 있음
+        - 많이 사용되었지만 유지보수가 어렵고, 성능이 나쁨
+
+        - 2000년대 MS가 .NET Framework를 발표.
+        - C#, VB.NET, C++,.NET 등의 새로운 언어를 배포, 여기에 맞춰서 웹 서버기술을 다시 만듬 -> ASP.NET(.aspx)
+        - 가장 큰 장점은 윈폼 개발하는 것 처럼 웹개발을 할 수 있었음
+        - 초창기에 스파게티 코드를 거의 그대로 사용. 성능 좋지 않음
+        - 2009년 ASP.NET MVC(Model View Controller 디자인패턴) 공표. 성능은 좋아짐
+        - 하지만 윈도우에서만 동작
+        - 2016년 모든 OS플랫폼에서 동작할 수 있는 .NET Core를 재출시
+        - 거기에 웹 서버기술을 또 다시 만듦 -> ASP.NET Core(.aspx)
+        - ASP.NET은 C#이 아닌 다른 .NET 언어로도 개발가능. 그중에서 C#을 사용
+
+    - .NET Core(현재는 .NET 9.0, Core라는 이름은 사용 안 함)의 장점
+        - 빠르고 오픈소스
+        - **크로스 플랫폼**, OS에 종속받지 않음
+        - 성능
+
+    - ASP.NET 종류
+        - ~~ASP.NET Webforms - 2000년도 초반에 나오다가 사장된 웹사이트 개발기술~~
+        - **ASP.NET COre 웹앱(MVC) - 가장 기본적인 프론트엔드(HTML, CSS, JS.cshtml) + 백엔드(C$, aspx.cs) 웹개발**
+        - **ASP.NET Core 웹 API - 데이터포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드(프론트엔드가 없어서 화면이 없음)**
+        - Js(Vue, Angular, React) 프론트엔드 + ASP.NET Core 백엔드
+        - --Edge용 웹 드라이버 테스트 - 엣지 브라우저에 종속된 테스트용--
+        - ASP.NET Core gRPC 서비스 - 고성능 원격프로시저호출(스트리밍 호출) 서비스
+        - Blazor - Hs 프론트엔드를 따라서 컴포넌트 기반으로 개발하는 웹개발 방식 웹사이트 개발
+        - Razor - 프론트엔드 개발에 C# 코드가 특화되서 사용되는 웹사이트 개발방식
+        - .NET Aspire - Blazor 프론트엔드 + Redis + 웹 API 백엔드
+
+    - 참조사이트
+        - https://github.com/dotnet
+        - https://mixedcode.com
+        - https://github.com/gilbutITbook/006824
+        - https://learn.microsoft.com/ko-kr/aspnet/core/?view=aspnetcore-3.1
+
+   - ASP.NET Core 웹앱(Model-View-Controller)
+        - 현재 기본적인 웹개발의 표준
+        - Java 계열도 Spring (Boot) MVC로 개발
+        - MVC 개념도    
+
+        <img src="https://raw.githubusercontent.com/c9yu/basic-aspnet-2024/main/day09/imgs/img001.png" width="730">
+
+        - 프론트엔드가 예전엔 스파게티 코드가 많이 심했다면, 현재는 스파게티 코드가 최소화 되어 있음. (SpringBoot, Python 모두 동일)
+        - IIS Express Server - VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버 이름
+        - index * : 웹사이트의 가장 대문이 되는 페이지 이름
+        - 파일 저장시 HotReload 체크
+        - 0로 시작하는 C# 구문. Tag helper, Html helper로 HTML 구문 내에 C# 코드를 적어서 활용하는 방법 = Razor 구문
+        - Action : HTML에서 form 태그 내의 submit 버튼 클릭! / 링크를 클릭하는 것, 윈앱에서 이벤트와 동일
+        - 액션이 발생한 이후 처리하는 메서드의 결과를 ActionResult라고 한다.
+        
+    - 데이터베이스 연동 방법
+        - DB first : 가장 전통적인 DB 연동 방식, DB 설계, DB 구축, C#과 연동
+        - Code first : 최근 트렌드가 되는 DB 연동 방식, C#클래스 작성, DB 연결 설정 후 실행하면 DB에 테이블이 생성.
+        - EntityFramword를 사용하면 아주 손쉽게 구축 가능
+
+    - EntityFramwork(Core) 
+        - Microsoft.EntityFrameworkCore
+        - Microsoft.EntityFrameworkCore.Tools
+        - Microsoft.EntityFrameworkCore.SqlServer
+
+    - Code first 구현 순서
+        - ASP.NET 프로젝트 생성
+        - EF 패키지 설치
+        - 엔티티 클래스 작성
+        - appsettings.json에 DB 연결 문자열 추가
+        - Data/ApplicationDbContext.cs 중간연결 클래스 생성
+        - Program.cs Services 내에 DbContext 종속성을 주입
+        - NuGet 패키지 관리자 > 패키지 관리자 콘솔 실행
+        ```shell
+         PM> add-migration 마이그레이션명
+        Build started...
+        Build succeeded.
+        ...
+        PM> Update-Database
+        ...
+        Done.
+        ```
+
+
 
 
 ## 9일차 (2024-06-10)

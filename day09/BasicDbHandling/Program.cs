@@ -1,3 +1,6 @@
+using BasicDbHandling.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace BasicDbHandling
 {
     public class Program
@@ -8,6 +11,10 @@ namespace BasicDbHandling
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            // DbContext 추가 (종속성 주입)
+            builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection")
+                ));
 
             var app = builder.Build();
 
