@@ -448,7 +448,7 @@ IoT 개발자 과정 ASP.NET 리포지토리
     22. _layout.cshtml Board 링크 수정
     23. /Controller/BoardController.cs를 생성(모델, 뷰 연결)
         - Entity Framework를 사용하며 뷰가 포함된 MVC컨트롤러
-
+        <img src="https://raw.githubusercontent.com/MsgIsJmt/basic-aspnet-2024/main/images/an0004.png" width="730">
 
 ## 10일차
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
